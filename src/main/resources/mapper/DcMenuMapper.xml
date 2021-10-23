@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.doublecat.mapper.DcMenuMapper">
+  <resultMap id="BaseResultMap" type="com.doublecat.entity.mapper.DcMenu">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="menu" jdbcType="VARCHAR" property="menu" />
+    <result column="menu_en" jdbcType="VARCHAR" property="menuEn" />
+    <result column="menu_dic" jdbcType="VARCHAR" property="menuDic" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_user_id" jdbcType="VARCHAR" property="createUserId" />
+    <result column="creaete_date" jdbcType="TIMESTAMP" property="creaeteDate" />
+    <result column="modify_user" jdbcType="VARCHAR" property="modifyUser" />
+    <result column="modify_user_id" jdbcType="VARCHAR" property="modifyUserId" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+  </resultMap>
+</mapper>

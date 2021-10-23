@@ -1,0 +1,23 @@
+server:
+  port: 8096
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 811236
+    url: jdbc:mysql://127.0.0.13:3306/double_cat?serverTimezone=UTC&auseUnicode=true&characterEncoding=utf-8
+proxy-server:
+  # OneBot cqhttp地址
+  url: http://127.0.0.1:5700
+  # 管理员的QQ号
+  admin-qq-no: 81128780
+
+logging:
+  file:
+    path: D:/
+    name: doubleCat.log
+    max-size: 50MB
+  level:
+    root: info
+jx3api:
+  url: https://www.jx3api.com/app/

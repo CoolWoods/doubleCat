@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.doublecat.mapper.DcDicMapper">
+  <resultMap id="BaseResultMap" type="com.doublecat.entity.mapper.DcDic">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="dic_name" jdbcType="VARCHAR" property="dicName" />
+    <result column="dic_code" jdbcType="VARCHAR" property="dicCode" />
+    <result column="dic_alias" jdbcType="VARCHAR" property="dicAlias" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dic_name, dic_code, dic_alias
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dc_dic
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dc_dic
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.doublecat.entity.mapper.DcDic">
+    insert into dc_dic (id, dic_name, dic_code, 
+      dic_alias)
+    values (#{id,jdbcType=BIGINT}, #{dicName,jdbcType=VARCHAR}, #{dicCode,jdbcType=VARCHAR}, 
+      #{dicAlias,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.doublecat.entity.mapper.DcDic">
+    insert into dc_dic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dicName != null">
+        dic_name,
+      </if>
+      <if test="dicCode != null">
+        dic_code,
+      </if>
+      <if test="dicAlias != null">
+        dic_alias,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dicName != null">
+        #{dicName,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCode != null">
+        #{dicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dicAlias != null">
+        #{dicAlias,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.doublecat.entity.mapper.DcDic">
+    update dc_dic
+    <set>
+      <if test="dicName != null">
+        dic_name = #{dicName,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCode != null">
+        dic_code = #{dicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dicAlias != null">
+        dic_alias = #{dicAlias,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.doublecat.entity.mapper.DcDic">
+    update dc_dic
+    set dic_name = #{dicName,jdbcType=VARCHAR},
+      dic_code = #{dicCode,jdbcType=VARCHAR},
+      dic_alias = #{dicAlias,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
